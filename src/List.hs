@@ -7,12 +7,12 @@ myTail (x : xs) = xs
 myInit :: [a] -> [a]
 myInit [] = error "[] has no init."
 myInit [x] = []
-myInit (x : xs) -> x : myInit xs
+myInit (x : xs) = x : myInit xs
 
 myLast :: [a] -> a
 myLast [] = error "[] has not last."
 myLast [x] = x
-myLast (x : xs) -> myLast xs
+myLast (x : xs) = myLast xs
 
 myGetAt :: [a] -> Int -> Maybe a
 [] `myGetAt` _ = Nothing
@@ -37,3 +37,5 @@ myReplicate :: Int -> a -> [a]
 myReplicate 0 _ = []
 myReplicate n x = x : myReplicate (n - 1) x
 
+myReplicateTwice :: a -> [a]
+myReplicateTwice = myReplicate 2 -- high-order function
